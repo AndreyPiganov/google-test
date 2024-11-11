@@ -1,14 +1,15 @@
-### Описание проекта
+# Описание проекта
 
 Проект реализует механизм выгрузки данных из PostgreSQL в произвольное количество Google Sheets. Данные извлекаются через API Wildberries, обрабатываются и накапливаются в базе данных PostgreSQL. После этого данные регулярно выгружаются в Google Sheets, где они сортируются по возрастанию коэффициента.
 
-### Требования
+# Требования
 
 СУБД: PostgreSQL.
 Библиотека для работы с СУБД: Knex.js.
 Типизация: TypeScript с параметром strict.
 Google API: Для авторизации и выгрузки данных в Google Sheets используется Google OAuth2.
-Технологии
+
+# Технологии
 Nest.js — серверный фреймворк для разработки приложения.
 PostgreSQL — реляционная база данных для хранения данных.
 Knex.js — SQL query builder для работы с PostgreSQL.
@@ -42,7 +43,7 @@ DATABASE_URL=postgres://username:password@localhost:5432/your_database
 
 CREDENTIALS_NAME=credentials.json
 
-# Пояснение параметров:
+## Пояснение параметров:
 
 API_KEY: ключ API Wildberries для получения данных о тарифах.
 
@@ -54,7 +55,7 @@ PORT: порт, на котором будет работать сервер (н
 
 DATABASE_URL: строка подключения к базе данных PostgreSQL.
 
-# Получение Credentials
+## Получение Credentials
 Перейдите в Google Cloud Console.
 
 Создайте новый проект или используйте существующий.
@@ -69,11 +70,11 @@ DATABASE_URL: строка подключения к базе данных Postg
 
 Скачайте файл с учетными данными credentials.json и разместите его в папке src/config.(Скачайте и переименуйте его в credentials.json)
 
-## 5. Docker настройка
+# 5. Docker настройка
 
 Проект использует Docker для контейнеризации приложения и PostgreSQL. Для запуска проекта в Docker используйте следующий шаг.
 
-## 5.1 Создайте и запустите контейнеры
+# 5.1 Создайте и запустите контейнеры
 
 ```bash
 docker-compose up --build
@@ -81,13 +82,13 @@ docker-compose up --build
 
 Контейнеры для PostgreSQL и приложения будут собраны и запущены.
 
-## 5.2 Остановить контейнеры
+# 5.2 Остановить контейнеры
 
 ```bash
 docker-compose down
 ```
 
-### API
+# API
 
 Получение ссылки для авторизации Google
 URL
@@ -124,7 +125,7 @@ json
 }
 ```
 
-### Логика работы
+# Логика работы
 
 Получение данных с API Wildberries
 
@@ -147,7 +148,7 @@ json
 3. Обновление токенов
    Если токен истечет, он автоматически обновится при следующем запросе.
 
-### Если использовать мой токен то можно использовать таблицы с id 12OCI3S0LC-TWuUQrzCBtJ8NJu9jjwx1akdRMLG6xHrY и 17XZbVIN-gE6QReIAH3nGgVpHvMMA7GIdiwB6n3-EEgY
+# Если использовать мой токен то можно использовать таблицы с id 12OCI3S0LC-TWuUQrzCBtJ8NJu9jjwx1akdRMLG6xHrY и 17XZbVIN-gE6QReIAH3nGgVpHvMMA7GIdiwB6n3-EEgY
 
 Нужно кинуть запрос на POST http://localhost:5005/google-sheets-metadata/
 С данными - 
