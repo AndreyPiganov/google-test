@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+    postgres_wb:
+        image: postgres:16-alpine
+        container_name: wb_db
+        environment:
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=example
+            - POSTGRES_HOST=localhost
+            - POSTGRES_PORT=5432
+            - POSTGRES_DB=wb
+        ports:
+            - "5252:5432"
+        volumes:
+            - ./db-volumes/database/wb:/var/lib/postgresql/data
+    wb_service:
+        container_name: wb-service
+        restart: always
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        expose:
+            - "5005"
+        ports:
+            - "127.0.0.1:5005:5005"
+        volumes:
+            - ./var/log:/var/wb/log
+            - ./:/app
+            - /app/node_modules
+
+        environment:
+            - PORT=5005
+            - DATABASE_URL=postgresql://root:example@wb_db:5432/wb?schema=public
+            - NODE_ENV=development
+            - LOG_LEVEL=debug
+        depends_on:
+            - postgres_wb
+networks:
+    wb_network:
+        driver: bridge
