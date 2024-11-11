@@ -55,11 +55,17 @@ PORT: порт, на котором будет работать сервер (н
 DATABASE_URL: строка подключения к базе данных PostgreSQL.
 
 Перейдите в Google Cloud Console.
+
 Создайте новый проект или используйте существующий.
+
 Перейдите в API & Services и включите Google Sheets API.
+
 Создайте учетные данные (OAuth 2.0 client ID) для вашего проекта:
+
 В разделе APIs & Services > Credentials выберите Create Credentials.
+
 Выберите OAuth 2.0 Client IDs и настройте редиректы для вашего локального хоста (например, http://localhost).
+
 Скачайте файл с учетными данными credentials.json и разместите его в папке src/config.(Скачайте и переименуйте его в credentials.json)
 
 ## 5. Docker настройка
