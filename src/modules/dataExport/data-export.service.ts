@@ -20,7 +20,7 @@ export class DataExportService {
 
     @ApiOperation({ summary: "Периодический экспорт данных в Google Sheets" })
     @ApiResponse({ status: 200, description: "Данные успешно загружены в Google Sheets" })
-    @Cron(CronExpression.EVERY_30_SECONDS)
+    @Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
     async handleCron(): Promise<void> {
         this.logger.log("API request and data update completed successfully");
         try {
