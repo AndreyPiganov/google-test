@@ -31,18 +31,27 @@ Docker — для контейнеризации приложения и баз�
 ## .env
 
 API_KEY=your_wildberries_api_key
+
 NODE_ENV=development
+
 LOG_LEVEL=info
+
 PORT=3000
+
 DATABASE_URL=postgres://username:password@localhost:5432/your_database
+
 CREDENTIALS_NAME=credentials.json
 
 # Пояснение параметров:
 
 API_KEY: ключ API Wildberries для получения данных о тарифах.
+
 NODE_ENV: среда разработки (например, development или production).
+
 LOG_LEVEL: уровень логирования (например, info, debug, error).
+
 PORT: порт, на котором будет работать сервер (например, 3000).
+
 DATABASE_URL: строка подключения к базе данных PostgreSQL.
 
 Перейдите в Google Cloud Console.
