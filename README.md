@@ -130,3 +130,13 @@ json
    После этого токен будет сохранен в файле src/config/token.json.
 3. Обновление токенов
    Если токен истечет, он автоматически обновится при следующем запросе.
+
+### Если использовать мой токен то можно использовать таблицы с id 12OCI3S0LC-TWuUQrzCBtJ8NJu9jjwx1akdRMLG6xHrY и 17XZbVIN-gE6QReIAH3nGgVpHvMMA7GIdiwB6n3-EEgY
+
+Нужно кинуть запрос на POST http://localhost:5005/google-sheets-metadata/
+С данными - 
+```bash
+{
+    "spreadsheet_id": "12OCI3S0LC-TWuUQrzCBtJ8NJu9jjwx1akdRMLG6xHrY"
+}
+```
