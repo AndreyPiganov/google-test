@@ -19,7 +19,7 @@ export class TariffService {
         @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
     ) {}
 
-    @Cron(CronExpression.EVERY_30_SECONDS)
+    @Cron(CronExpression.EVERY_HOUR)
     @ApiOperation({ summary: "Периодически обновляет тарифы" })
     @ApiResponse({ status: 200, description: "Тарифы успешно обновлены" })
     async handleCron(): Promise<void> {
