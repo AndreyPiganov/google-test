@@ -42,6 +42,18 @@ export class TariffController {
         }
     }
 
+    @ApiOperation({ summary: "Получить ежедневные тарифы" })
+    @ApiResponse({ status: 200, description: "Возвращает список всех ежедневных данных тарифов" })
+    @Get("/daily_data")
+    getAllDailyData() {
+        try {
+            return this.tariffService.getDailyDataTariffs();
+        } catch (e) {
+            this.logger.error(`Error in tariffController:\n${e}`);
+            throw new HttpException("Ошибка при получении тарифов", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @ApiOperation({ summary: "Получить тариф по ID" })
     @ApiParam({ name: "id", type: "number", description: "ID тарифа" })
     @ApiResponse({ status: 200, description: "Возвращает тариф по ID" })

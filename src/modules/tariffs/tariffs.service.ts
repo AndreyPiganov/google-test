@@ -199,6 +199,19 @@ export class TariffService {
         }
     }
 
+    @ApiOperation({ summary: "Получение daily_data" })
+    @ApiResponse({ status: 200, description: "Daily_data успешно получена" })
+    async getDailyDataTariffs() {
+        try {
+            const daily_data = await this.db.getAll("daily_data");
+            this.logger.log("Fetched all daily_data");
+            return daily_data;
+        } catch (e) {
+            this.logger.error("Error get daily_data", e);
+            throw e;
+        }
+    }
+
     private isTariffUpdated(existingTariff: Tariff, newTariff: Tariff): boolean {
         const fieldsToCheck = ["boxDeliveryBase", "boxStorageBase", "boxDeliveryLiter", "boxStorageLiter"];
         return fieldsToCheck.some((field) => existingTariff[field] !== newTariff[field]);
